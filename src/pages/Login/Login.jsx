@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import img from "../../assets/react.svg";
+import img from "../../assets/login.svg";
 import { AuthContext } from "../../providers/AuthProvider";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
