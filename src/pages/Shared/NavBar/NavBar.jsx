@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../assets/react.svg";
+import logo from "../../../assets/car_logo.jpg";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const NavBar = () => {
@@ -20,7 +20,16 @@ const NavBar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/about">About</Link>
+        <Link to="/toys">All Toys</Link>
+      </li>
+      <li>
+        <Link to="/add_toys">Add Toys</Link>
+      </li>
+      <li>
+        <Link to="/my_toys">My Toys</Link>
+      </li>
+      <li>
+        <Link to="/blogs">Blogs</Link>
       </li>
       <li>
         <Link to="/about">About</Link>
@@ -73,7 +82,8 @@ const NavBar = () => {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          <img className="h-16" src={logo} alt="" />
+          <img className="h-12 w-12 " src={logo} alt="#" />
+          <h1 className="text-3xl"> Toy Cars </h1>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
