@@ -1,28 +1,25 @@
 import { useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import img from "../../assets/react.svg";
 import { AuthContext } from "../../providers/AuthProvider";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
-const Login = () => {
-  const { signIn } = useContext(AuthContext);
-  const location = useLocation();
-  const navigate = useNavigate();
+const SignUp = () => {
+  const { createUser } = useContext(AuthContext);
 
-  const from = location.state?.from?.pathname || "/";
-
-  const handleLogin = (event) => {
+  const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    console.log(name, email, password);
 
-    signIn(email, password)
+    createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         form.reset();
-        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
   };
@@ -35,14 +32,25 @@ const Login = () => {
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
-            <h1 className="text-3xl text-center font-bold">Login</h1>
-            <form onSubmit={handleLogin}>
+            <h1 className="text-3xl text-center font-bold">Sign Up</h1>
+            <form onSubmit={handleSignUp}>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="name"
+                  className="input input-bordered"
+                />
+              </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   name="email"
                   placeholder="email"
                   className="input input-bordered"
@@ -50,7 +58,7 @@ const Login = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text">Confirm Password</span>
                 </label>
                 <input
                   type="password"
@@ -68,14 +76,14 @@ const Login = () => {
                 <input
                   className="btn btn-primary"
                   type="submit"
-                  value="Login"
+                  value="Sign Up"
                 />
               </div>
             </form>
             <p className="my-4 text-center">
-              New to Car Doctors
-              <Link className="text-orange-600 font-bold" to="/signup">
-                Sign Up
+              Already Have an Account?
+              <Link className="text-orange-600 font-bold" to="/login">
+                Login
               </Link>
               <SocialLogin />
             </p>
@@ -86,4 +94,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

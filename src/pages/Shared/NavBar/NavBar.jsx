@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../assets/logo.svg";
+import logo from "../../../assets/react.svg";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const NavBar = () => {
@@ -28,9 +28,9 @@ const NavBar = () => {
 
       {user?.email ? (
         <>
-          <li>
+          {/* <li>
             <Link to="/bookings">My Bookings</Link>
-          </li>
+          </li> */}
           <li>
             <Link>
               <button onClick={handleLogOut}> Log out </button>
