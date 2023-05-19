@@ -1,30 +1,20 @@
-import React, { useState } from "react";
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
+import React from "react";
+import { useLoaderData } from "react-router-dom";
+import SingleToyCard from "./SingleToyCard";
 
 const AllToys = () => {
-  const [tabIndex, setTabIndex] = useState(0);
+  const allToys = useLoaderData();
   return (
     <div className="text-center">
-      <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-        <TabList>
-          <Tab>Title 1</Tab>
-          <Tab>Title 2</Tab>
-          <Tab>Title 3</Tab>
-        </TabList>
-        <TabPanel>
-          <h2>Any content 1</h2>
-          <h2>Any content 1</h2>
-        </TabPanel>
-        <TabPanel>
-          <h2>Any content 2</h2>
-          <h2>Any content 2</h2>
-        </TabPanel>
-        <TabPanel>
-          <h2>Any content 3</h2>
-          <h2>Any content 3</h2>
-        </TabPanel>
-      </Tabs>
+      <h3 className="text-3xl"> total toys : {allToys.length} </h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-16">
+        {allToys.map((singleToy) => (
+          <SingleToyCard
+            key={singleToy._id}
+            singleToy={singleToy}
+          ></SingleToyCard>
+        ))}
+      </div>
     </div>
   );
 };
