@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/car_logo.jpg";
 import { AuthContext } from "../../../providers/AuthProvider";
@@ -90,7 +91,22 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1 font-semibold ">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-outline btn-warning">Appointment</button>
+        {user?.photoURL ? (
+          <>
+            <h3 style={{ color: "orange" }} className="text-xl font-bold">
+              {user?.displayName}
+            </h3>
+            <div className="tooltip tooltip-left" data-tip={user?.displayName}>
+              <div className="avatar">
+                <div className="w-12 m-4 rounded-full ring ring-gray-600 ring-offset-base-100 ring-offset-2">
+                  <img src={user?.photoURL} />
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <FaUserAlt style={{ fontSize: "2rem" }} />
+        )}
       </div>
     </div>
   );
