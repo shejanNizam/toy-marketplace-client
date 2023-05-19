@@ -20,10 +20,10 @@ const NavBar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/toys">All Toys</Link>
+        <Link to="/all_toys">All Toys</Link>
       </li>
       <li>
-        <Link to="/add_toys">Add Toys</Link>
+        <Link to="/add_toys">Add A Toys</Link>
       </li>
       <li>
         <Link to="/my_toys">My Toys</Link>
