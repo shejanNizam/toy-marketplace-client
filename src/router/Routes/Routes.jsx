@@ -3,6 +3,7 @@ import Main from "../../layouts/Main";
 import About from "../../pages/About/About";
 import AddToys from "../../pages/AddToys/AddToys";
 import AllToys from "../../pages/AllToys/AllToys";
+import MyToysDetails from "../../pages/AllToys/MyToysDetails";
 import Blogs from "../../pages/Blogs/Blogs";
 import Error from "../../pages/Error/Error";
 import Home from "../../pages/Home/Home/Home";
@@ -21,18 +22,25 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "all_toys",
+        path: "toys",
         element: <AllToys />,
-        loader: () => fetch(`http://localhost:7000/all_toys`),
+        loader: () => fetch(`http://localhost:7000/toys`),
+      },
+      {
+        path: "toys/:id",
+        element: <MyToysDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:7000/toys/${params.id}`),
       },
       {
         path: "add_toys",
         element: <AddToys />,
       },
       {
-        path: "/my_toys",
+        path: "my_toys",
         element: <MyToys />,
       },
+
       {
         path: "blogs",
         element: <Blogs />,

@@ -1,15 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SingleToyCard = ({ singleToy }) => {
-  // console.log(singleToy);
-  // https://i.ibb.co/Rhy8M7z/sports-car1.jpg
-  // https://i.ibb.co/bmZq6QZ/sports-car2.jpg
-
-  // https://i.ibb.co/YQCSpwy/regular-car1.jpg
-  // https://i.ibb.co/7gG56Wc/regular-car2.webp
-
-  // https://i.ibb.co/CKhz8zq/police-car1.jpg
-  // https://i.ibb.co/TrCrsC5/police-car2.webp
   const {
     _id,
     photo_url,
@@ -21,7 +13,7 @@ const SingleToyCard = ({ singleToy }) => {
     quantity,
     rating,
     details,
-  } = singleToy;
+  } = singleToy || {};
   return (
     <div>
       <div className="card w-96 glass">
@@ -44,7 +36,9 @@ const SingleToyCard = ({ singleToy }) => {
           </p>
 
           <div className="card-actions justify-end">
-            <button className="btn btn-outline">Details</button>
+            <Link to={`/toys/${_id}`}>
+              <button className="btn btn-outline">Details</button>
+            </Link>
           </div>
         </div>
       </div>

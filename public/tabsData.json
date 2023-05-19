@@ -1,0 +1,74 @@
+[
+  {
+    "_id": 1,
+    "category": "Regular Cars",
+    "name": "Red Toy Sedan",
+    "price": 10.99,
+    "rating": 4.5,
+    "image": "https://example.com/red-toy-sedan.jpg"
+  },
+  {
+    "_id": 2,
+    "category": "Regular Cars",
+    "name": "Blue Toy Convertible",
+    "price": 12.99,
+    "rating": 4.2,
+    "image": "https://example.com/blue-toy-convertible.jpg"
+  },
+  {
+    "_id": 3,
+    "category": "Regular Cars",
+    "name": "Yellow Toy SUV",
+    "price": 14.99,
+    "rating": 4.0,
+    "image": "https://example.com/yellow-toy-suv.jpg"
+  },
+  {
+    "_id": 4,
+    "category": "Sports Cars",
+    "name": "Silver Toy Coupe",
+    "price": 9.99,
+    "rating": 4.8,
+    "image": "https://example.com/silver-toy-coupe.jpg"
+  },
+  {
+    "_id": 5,
+    "category": "Sports Cars",
+    "name": "Black Toy Sports Car",
+    "price": 11.99,
+    "rating": 4.9,
+    "image": "https://example.com/black-toy-sports-car.jpg"
+  },
+  {
+    "_id": 6,
+    "category": "Sports Cars",
+    "name": "Orange Toy Race Car",
+    "price": 13.99,
+    "rating": 4.7,
+    "image": "https://example.com/orange-toy-race-car.jpg"
+  },
+  {
+    "_id": 7,
+    "category": "Mini Police Cars",
+    "name": "White Toy Police Car",
+    "price": 15.99,
+    "rating": 4.3,
+    "image": "https://example.com/white-toy-police-car.jpg"
+  },
+  {
+    "_id": 8,
+    "category": "Mini Police Cars",
+    "name": "Green Toy Patrol Car",
+    "price": 17.99,
+    "rating": 4.1,
+    "image": "https://example.com/green-toy-patrol-car.jpg"
+  },
+  {
+    "_id": 9,
+    "category": "Mini Police Cars",
+    "name": "Blue Toy SWAT Truck",
+    "price": 19.99,
+    "rating": 4.4,
+    "image": "https://example.com/blue-toy-swat-truck.jpg"
+  }
+]

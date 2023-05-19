@@ -26,7 +26,6 @@ const AddToys = () => {
           alert("Toy added successfully");
         }
       });
-    console.log(data);
   };
 
   return (
@@ -50,11 +49,29 @@ const AddToys = () => {
           placeholder="Toy Name"
           {...register("toy_name", { required: true })}
         />
-        <input
-          className="m-2 p-2 h-10 w-60 rounded"
-          placeholder="Photo URL of Toy"
+        <select
+          className=" m-2 p-2 h-10 w-60 rounded"
           {...register("photo_url", { required: true })}
-        />
+        >
+          <option value="https://i.ibb.co/Rhy8M7z/sports-car1.jpg">
+            https://i.ibb.co/Rhy8M7z/sports-car1.jpg
+          </option>
+          <option value="https://i.ibb.co/bmZq6QZ/sports-car2.jpg">
+            https://i.ibb.co/bmZq6QZ/sports-car2.jpg
+          </option>
+          <option value="https://i.ibb.co/YQCSpwy/regular-car1.jpg">
+            https://i.ibb.co/YQCSpwy/regular-car1.jpg
+          </option>
+          <option value="https://i.ibb.co/7gG56Wc/regular-car2.webp">
+            https://i.ibb.co/7gG56Wc/regular-car2.webp
+          </option>
+          <option value="https://i.ibb.co/CKhz8zq/police-car1.jpg">
+            https://i.ibb.co/CKhz8zq/police-car1.jpg
+          </option>
+          <option value="https://i.ibb.co/TrCrsC5/police-car2.webp">
+            https://i.ibb.co/TrCrsC5/police-car2.webp
+          </option>
+        </select>
         <br />
         <select
           className=" m-2 p-2 h-10 w-60 rounded"
