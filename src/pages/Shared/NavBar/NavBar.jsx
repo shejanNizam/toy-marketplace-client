@@ -23,9 +23,13 @@ const NavBar = () => {
       <li>
         <Link to="/toys">All Toys</Link>
       </li>
-      <li>
-        <Link to="/add_toys">Add A Toys</Link>
-      </li>
+      {user?.email ? (
+        <li>
+          <Link to="/add_toys">Add A Toys</Link>
+        </li>
+      ) : (
+        ""
+      )}
       {user?.email ? (
         <li>
           <Link to="/my_toys">My Toys</Link>
@@ -39,18 +43,12 @@ const NavBar = () => {
       <li>
         <Link to="/about">About</Link>
       </li>
-
       {user?.email ? (
-        <>
-          {/* <li>
-            <Link to="/bookings">My Bookings</Link>
-          </li> */}
-          <li>
-            <Link>
-              <button onClick={handleLogOut}> Log out </button>
-            </Link>
-          </li>
-        </>
+        <li>
+          <Link>
+            <button onClick={handleLogOut}> Log out </button>
+          </Link>
+        </li>
       ) : (
         <li>
           <Link to="/login">Login</Link>
@@ -60,7 +58,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 h-28">
+    <div className="navbar bg-base-100 h-24">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

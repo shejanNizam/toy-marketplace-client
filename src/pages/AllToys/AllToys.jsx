@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaAngleRight } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import SingleToyCard from "./SingleToyCard";
 
@@ -12,17 +13,18 @@ const AllToys = () => {
 
   return (
     <div>
-      <h3 className="text-center text-4xl">All Toys total: {allToys.length}</h3>
+      <h3 className="text-center text-3xl font-bold ">
+        All Toys: <span className="text-orange-400">{allToys.length}</span> Pcs
+      </h3>
       <div className="overflow-x-auto m-8">
         <table className="table w-full">
           {/* head */}
           <thead>
             <tr>
-              <th>All Toys & Details </th>
-              <th>Seller Information</th>
-              <th>Details </th>
-              <th>Prices</th>
-              <th> details </th>
+              <th className="text-lg">All Toys & Details </th>
+              <th className="text-lg">Seller Information</th>
+              <th className="text-lg">Prices</th>
+              <th className="text-lg"> details </th>
             </tr>
           </thead>
           <tbody>
@@ -34,12 +36,14 @@ const AllToys = () => {
             ))}
           </tbody>
         </table>
+        {!showAll && (
+          <div onClick={handleShowAll} className="text-right">
+            <button className="btn btn-outline btn-sm">
+              See All <FaAngleRight />
+            </button>
+          </div>
+        )}
       </div>
-      {!showAll && (
-        <span onClick={handleShowAll} className="text-center">
-          <button className="btn btn-outline">See All</button>
-        </span>
-      )}
     </div>
   );
 };

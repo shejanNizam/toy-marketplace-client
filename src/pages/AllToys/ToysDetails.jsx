@@ -1,4 +1,5 @@
 import React from "react";
+import { FaAngleLeft } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 
 const ToysDetails = () => {
@@ -19,7 +20,7 @@ const ToysDetails = () => {
   return (
     <div>
       <h3 className="text-center text-2xl font-bold">
-        Details For : {toy_name}
+        Details For : <span className="text-orange-400">{toy_name}</span>
       </h3>
       <div className="card card-side bg-base-100 shadow-xl w-3/4 mx-auto my-16">
         <figure>
@@ -47,7 +48,9 @@ const ToysDetails = () => {
           </p>
           <div className="card-actions justify-end">
             <Link to="/toys">
-              <button className="btn btn-outline">Back</button>
+              <button className="btn btn-outline btn-sm">
+                <FaAngleLeft /> Back
+              </button>
             </Link>
           </div>
         </div>

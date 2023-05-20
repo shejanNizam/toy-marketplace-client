@@ -7,9 +7,9 @@ const Footer = () => {
       <div>
         <img className="h-20 w-24" src={logo} alt="#" />
         <p>
-          ACME Industries Ltd.
+          Toy Cars Ltd.
           <br />
-          Providing reliable tech since 1992
+          Nizam Uddin Shejan 2023 || <br /> Programming Hero Assignment 10
         </p>
       </div>
       <div>

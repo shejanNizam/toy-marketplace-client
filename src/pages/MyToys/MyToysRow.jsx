@@ -42,7 +42,7 @@ const MyToysRow = ({ myToy, handleDelete }) => {
       <td>
         <div className="flex items-center space-x-3">
           <div className="avatar">
-            <div className="mask mask-squircle w-12 h-12">
+            <div className="mask mask-squircle w-24 h-24">
               <img src={photo_url} alt="Avatar Tailwind CSS Component" />
             </div>
           </div>
@@ -76,9 +76,7 @@ const MyToysRow = ({ myToy, handleDelete }) => {
           <span className="font-bold text-purple-600"> Confirmed </span>
         ) : (
           <Link to={`/update_toys/${_id}`}>
-            <button className="btn btn-ghost border-gray-700 btn-xs">
-              update
-            </button>
+            <button className="btn btn-outline btn-xs">Update</button>
           </Link>
         )}
       </th>

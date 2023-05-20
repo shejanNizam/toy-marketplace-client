@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { FaAngleRight } from "react-icons/fa";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ReactTabCard from "./ReactTabCard";
@@ -29,16 +30,19 @@ const ReactTabs = () => {
   return (
     <>
       <div className="text-center my-16">
+        <h2 className="text-2xl text-center text-orange-400 font-bold my-8 mb-8">
+          Here's our all Categories Collections
+        </h2>
         <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList>
             <Tab onClick={() => setSelectedCategory("All")}>
               <h3 className="text-xl font-bold"> All </h3>
             </Tab>
             <Tab onClick={() => setSelectedCategory("Regular Cars")}>
-              <h3 className="text-xl font-bold">Sports Cars</h3>
+              <h3 className="text-xl font-bold">Regular Cars</h3>
             </Tab>
             <Tab onClick={() => setSelectedCategory("Sports Cars")}>
-              <h3 className="text-xl font-bold">Regular Cars</h3>
+              <h3 className="text-xl font-bold">Sports Cars</h3>
             </Tab>
             <Tab onClick={() => setSelectedCategory("Mini Police Cars")}>
               <h3 className="text-xl font-bold">Mini Police Cars</h3>
@@ -56,15 +60,17 @@ const ReactTabs = () => {
                     ></ReactTabCard>
                   ))}
               </div>
+              {!showAll && (
+                <div onClick={handleShowAll} className="text-right mr-8">
+                  <button className="btn btn-outline btn-sm">
+                    See All <FaAngleRight />
+                  </button>
+                </div>
+              )}
             </TabPanel>
           ))}
         </Tabs>
       </div>
-      {!showAll && (
-        <span onClick={handleShowAll} className="text-center">
-          <button className="btn btn-outline">See All</button>
-        </span>
-      )}
     </>
   );
 };

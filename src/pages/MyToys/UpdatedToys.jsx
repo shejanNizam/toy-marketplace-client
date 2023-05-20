@@ -42,8 +42,7 @@ const UpdatedToys = () => {
   };
 
   return (
-    <div className="m-20 p-20 bg-gray-400 text-center">
-      <h3 className="text-4xl text-center"> Update Toy</h3>
+    <div className="m-8 p-20 bg-gray-400 text-center">
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           className="m-2 p-2 h-10 w-60 rounded"
@@ -127,7 +126,11 @@ const UpdatedToys = () => {
 
         {errors.exampleRequired && <span>This field is required</span>}
         <br />
-        <input className="btn btn-primary" type="submit" value="Update" />
+        <input
+          className="btn btn-outline btn-sm"
+          type="submit"
+          value="Update"
+        />
       </form>
     </div>
   );

@@ -11,9 +11,10 @@ const SignUp = () => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
+    const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, password);
+    console.log(name, photo, email, password);
 
     createUser(email, password)
       .then((result) => {
@@ -47,6 +48,17 @@ const SignUp = () => {
               </div>
               <div className="form-control">
                 <label className="label">
+                  <span className="label-text">Photo URL</span>
+                </label>
+                <input
+                  type="text"
+                  name="photo"
+                  placeholder="photo url"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
@@ -58,7 +70,7 @@ const SignUp = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Confirm Password</span>
+                  <span className="label-text">Password</span>
                 </label>
                 <input
                   type="password"

@@ -1,4 +1,5 @@
 import React from "react";
+import About from "../../About/About";
 import Banner from "../Banner/Banner";
 import Contact from "../Contact/Contact";
 import GallerySection from "../GallerySection/GallerySection";
@@ -10,6 +11,7 @@ const Home = () => {
       <Banner />
       <GallerySection />
       <ReactTabs />
+      <About />
       <Contact />
     </>
   );

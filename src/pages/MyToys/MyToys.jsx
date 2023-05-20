@@ -7,16 +7,8 @@ import MyToysRow from "./MyToysRow";
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
-  // console.log(myToys);
-
-  // const url = `http://localhost:7000/my_toys?email=${user?.email}`;
 
   useEffect(() => {
-    // fetch(url)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setMyToys(data);
-    //   });
     axios
       .get(`http://localhost:7000/my_toys?email=${user?.email}`)
       .then((data) => {
@@ -53,18 +45,20 @@ const MyToys = () => {
 
   return (
     <div>
-      <h3 className="text-center text-4xl">MyToys total: {myToys.length} </h3>
-      <div className="overflow-x-auto w-full">
+      <h3 className="text-center text-3xl font-bold ">
+        My Toys: <span className="text-orange-400">{myToys.length}</span> Pcs
+      </h3>
+      <div className="overflow-x-auto  m-8">
         <table className="table w-full">
           {/* head */}
           <thead>
             <tr>
-              <th>Delete</th>
-              <th>All Toys & Details </th>
-              <th>Seller Information</th>
-              <th>Details </th>
-              <th>Prices</th>
-              <th> Updates </th>
+              <th className="text-lg">Delete</th>
+              <th className="text-lg">My Toys & Details </th>
+              <th className="text-lg">Seller Information</th>
+              <th className="text-lg">Details </th>
+              <th className="text-lg">Prices</th>
+              <th className="text-lg"> Updates </th>
             </tr>
           </thead>
           <tbody>
