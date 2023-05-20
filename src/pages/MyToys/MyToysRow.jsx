@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const MyToysRow = ({ myToy, handleDelete, handleUpdateToys }) => {
+const MyToysRow = ({ myToy, handleDelete }) => {
   const {
     _id,
     photo_url,
@@ -74,12 +75,11 @@ const MyToysRow = ({ myToy, handleDelete, handleUpdateToys }) => {
         {status === "confirm" ? (
           <span className="font-bold text-purple-600"> Confirmed </span>
         ) : (
-          <button
-            onClick={() => handleUpdateToys(_id)}
-            className="btn btn-ghost border-gray-700 btn-xs"
-          >
-            update
-          </button>
+          <Link to={`/update_toys/${_id}`}>
+            <button className="btn btn-ghost border-gray-700 btn-xs">
+              update
+            </button>
+          </Link>
         )}
       </th>
     </tr>

@@ -15,7 +15,7 @@ const ToysDetails = () => {
     rating,
     details,
   } = toyDetails || {};
-  console.log(toyDetails);
+  // console.log(toyDetails);
   return (
     <div>
       <h3 className="text-center text-2xl font-bold">

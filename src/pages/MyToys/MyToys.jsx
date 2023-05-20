@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 import MyToysRow from "./MyToysRow";
 
@@ -18,43 +19,30 @@ const MyToys = () => {
   }, []);
 
   const handleDelete = (id) => {
-    const proceed = confirm("Are you sure you watt to delete");
-    if (proceed) {
-      fetch(`http://localhost:7000/my_toys/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.deletedCount > 0) {
-            alert("Deleted Successfully");
-            const remaining = myToys.filter((toy) => toy._id !== id);
-            setMyToys(remaining);
-          }
-        });
-    }
-  };
-
-  const handleUpdateToys = (id) => {
-    fetch(`http://localhost:7000/my_toys/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ status: "confirm" }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount > 0) {
-          // update
-          const remaining = myToys.filter((toy) => toy._id !== id);
-          const updated = myToys.find((toy) => toy._id === id);
-          updated.status = "confirm";
-          const newToys = [updated, ...remaining];
-          setMyToys(newToys);
-        }
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:7000/my_toys/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              const remaining = myToys.filter((toy) => toy._id !== id);
+              setMyToys(remaining);
+            }
+          });
+      }
+    });
   };
 
   return (
@@ -79,7 +67,6 @@ const MyToys = () => {
                 key={myToy._id}
                 myToy={myToy}
                 handleDelete={handleDelete}
-                handleUpdateToys={handleUpdateToys}
               ></MyToysRow>
             ))}
           </tbody>

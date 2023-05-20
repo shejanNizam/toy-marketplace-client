@@ -6,13 +6,14 @@ const AllToys = () => {
   const allToys = useLoaderData();
   return (
     <div>
-      <h3 className="text-center text-4xl">MyToys total: {allToys.length} </h3>
+      <h3 className="text-center text-4xl">
+        All Toys total: {allToys.length}{" "}
+      </h3>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           {/* head */}
           <thead>
             <tr>
-              <th>Number</th>
               <th>All Toys & Details </th>
               <th>Seller Information</th>
               <th>Details </th>

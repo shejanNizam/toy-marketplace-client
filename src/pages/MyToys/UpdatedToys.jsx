@@ -1,10 +1,22 @@
-import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../../providers/AuthProvider";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const AddToys = () => {
-  const { user } = useContext(AuthContext);
-  // console.log(user);
+const UpdatedToys = () => {
+  const updatedToy = useLoaderData();
+  const {
+    _id,
+    photo_url,
+    seller_name,
+    email,
+    toy_name,
+    category,
+    price,
+    quantity,
+    rating,
+    details,
+  } = updatedToy || {};
+
   const {
     register,
     handleSubmit,
@@ -12,46 +24,50 @@ const AddToys = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch(`http://localhost:7000/post_toys`, {
-      method: "POST",
+    console.log(data);
+    fetch(`http://localhost:7000/toys/${_id}`, {
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        if (result.acknowledged) {
-          alert("Toy added successfully");
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          Swal.fire("Updated!", "Your file has been update.", "success");
         }
       });
   };
 
   return (
     <div className="m-20 p-20 bg-gray-400 text-center">
+      <h3 className="text-4xl text-center"> Update Toy</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           className="m-2 p-2 h-10 w-60 rounded"
           placeholder="Seller Name"
-          defaultValue={user?.displayName}
+          defaultValue={seller_name}
           {...register("seller_name", { required: true })}
         />
         <input
           className="m-2 p-2 h-10 w-60 rounded"
           placeholder="Seller Email"
-          defaultValue={user?.email}
+          defaultValue={email}
           {...register("email", { required: true })}
         />
         <br />
         <input
           className="m-2 p-2 h-10 w-60 rounded"
           placeholder="Toy Name"
+          defaultValue={toy_name}
           {...register("toy_name", { required: true })}
         />
         <select
           className=" m-2 p-2 h-10 w-60 rounded"
           {...register("photo_url", { required: true })}
+          defaultValue={photo_url}
         >
           <option value="https://i.ibb.co/Rhy8M7z/sports-car1.jpg">
             https://i.ibb.co/Rhy8M7z/sports-car1.jpg
@@ -76,6 +92,7 @@ const AddToys = () => {
         <select
           className=" m-2 p-2 h-10 w-60 rounded"
           {...register("category", { required: true })}
+          defaultValue={category}
         >
           <option value="Regular Cars">Regular Cars</option>
           <option value="Sports Cars">Sports Cars</option>
@@ -84,32 +101,36 @@ const AddToys = () => {
         <input
           className="m-2 p-2 h-10 w-60 rounded"
           placeholder="Price"
+          defaultValue={price}
           {...register("price", { required: true })}
         />
         <br />
         <input
           className="m-2 p-2 h-10 w-60 rounded"
           placeholder="Rating"
+          defaultValue={rating}
           {...register("rating", { required: true })}
         />
         <input
           className="m-2 p-2 h-10 w-60 rounded"
           placeholder="Available Quantity"
+          defaultValue={quantity}
           {...register("quantity", { required: true })}
         />
         <br />
         <input
           className="m-2 p-2 h-20 w-96 rounded"
           placeholder="Details of Toys "
+          defaultValue={details}
           {...register("details", { required: true })}
         />
 
         {errors.exampleRequired && <span>This field is required</span>}
         <br />
-        <input className="btn btn-primary" type="submit" value="Add" />
+        <input className="btn btn-primary" type="submit" value="Update" />
       </form>
     </div>
   );
 };
 
-export default AddToys;
+export default UpdatedToys;
