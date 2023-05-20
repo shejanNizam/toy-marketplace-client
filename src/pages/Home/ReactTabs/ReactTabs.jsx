@@ -15,7 +15,7 @@ const ReactTabs = () => {
       : toyCarsData.filter((car) => car.category === selectedCategory);
 
   useEffect(() => {
-    fetch(`tabs.json`)
+    fetch(`http://localhost:7000/toys`)
       .then((res) => res.json())
       .then((data) => {
         setToyCarsData(data);

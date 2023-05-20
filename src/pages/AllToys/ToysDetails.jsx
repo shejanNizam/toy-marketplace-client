@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
-const MyToysDetails = () => {
+const ToysDetails = () => {
   const toyDetails = useLoaderData();
   const {
     _id,
     photo_url,
     seller_name,
-    seller_email,
+    email,
     toy_name,
     category,
     price,
@@ -30,7 +30,7 @@ const MyToysDetails = () => {
             <span className="font-bold">Seller Name:</span> {seller_name}
           </p>
           <p>
-            <span className="font-bold">Seller Email:</span> {seller_email}
+            <span className="font-bold">Seller Email:</span> {email}
           </p>
           <p>
             <span className="font-bold">Price:</span> ${price}
@@ -56,4 +56,4 @@ const MyToysDetails = () => {
   );
 };
 
-export default MyToysDetails;
+export default ToysDetails;

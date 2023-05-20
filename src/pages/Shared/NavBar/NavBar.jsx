@@ -26,9 +26,13 @@ const NavBar = () => {
       <li>
         <Link to="/add_toys">Add A Toys</Link>
       </li>
-      <li>
-        <Link to="/my_toys">My Toys</Link>
-      </li>
+      {user?.email ? (
+        <li>
+          <Link to="/my_toys">My Toys</Link>
+        </li>
+      ) : (
+        ""
+      )}
       <li>
         <Link to="/blogs">Blogs</Link>
       </li>
@@ -84,7 +88,9 @@ const NavBar = () => {
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
           <img className="h-12 w-12 " src={logo} alt="#" />
-          <h1 className="text-3xl"> Toy Cars </h1>
+          <h1 className="text-4xl font-bold">
+            Toy <span className="text-orange-400"> Cars</span>
+          </h1>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">

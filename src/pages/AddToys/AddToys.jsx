@@ -41,7 +41,7 @@ const AddToys = () => {
           className="m-2 p-2 h-10 w-60 rounded"
           placeholder="Seller Email"
           defaultValue={user?.email}
-          {...register("seller_email", { required: true })}
+          {...register("email", { required: true })}
         />
         <br />
         <input

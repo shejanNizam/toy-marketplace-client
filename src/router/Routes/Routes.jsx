@@ -3,13 +3,14 @@ import Main from "../../layouts/Main";
 import About from "../../pages/About/About";
 import AddToys from "../../pages/AddToys/AddToys";
 import AllToys from "../../pages/AllToys/AllToys";
-import MyToysDetails from "../../pages/AllToys/MyToysDetails";
+import ToysDetails from "../../pages/AllToys/ToysDetails";
 import Blogs from "../../pages/Blogs/Blogs";
 import Error from "../../pages/Error/Error";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/Login";
 import SignUp from "../../pages/Login/SignUp";
 import MyToys from "../../pages/MyToys/MyToys";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "toys/:id",
-        element: <MyToysDetails />,
+        element: <ToysDetails />,
         loader: ({ params }) =>
           fetch(`http://localhost:7000/toys/${params.id}`),
       },
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
       },
       {
         path: "my_toys",
-        element: <MyToys />,
+        element: (
+          <PrivateRoutes>
+            <MyToys />
+          </PrivateRoutes>
+        ),
       },
 
       {

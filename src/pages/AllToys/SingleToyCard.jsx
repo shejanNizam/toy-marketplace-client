@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleToyCard = ({ singleToy }) => {
+  // console.log(singleToy);
   const {
     _id,
     photo_url,
     seller_name,
-    seller_email,
+    email,
     toy_name,
     category,
     price,
@@ -15,7 +16,7 @@ const SingleToyCard = ({ singleToy }) => {
     details,
   } = singleToy || {};
   return (
-    <div>
+    <>
       <div className="card w-96 glass">
         <figure>
           <img className="h-56" src={photo_url} alt="car!" />
@@ -42,7 +43,7 @@ const SingleToyCard = ({ singleToy }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
