@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
@@ -8,13 +9,18 @@ const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
   // console.log(myToys);
 
-  const url = `http://localhost:7000/my_toys?email=${user?.email}`;
+  // const url = `http://localhost:7000/my_toys?email=${user?.email}`;
 
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
+    // fetch(url)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setMyToys(data);
+    //   });
+    axios
+      .get(`http://localhost:7000/my_toys?email=${user?.email}`)
       .then((data) => {
-        setMyToys(data);
+        setMyToys(data.data);
       });
   }, []);
 

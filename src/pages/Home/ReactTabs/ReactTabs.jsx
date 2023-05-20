@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
@@ -20,11 +21,9 @@ const ReactTabs = () => {
       : toyCarsData.filter((car) => car.category === selectedCategory);
 
   useEffect(() => {
-    fetch(`http://localhost:7000/toys`)
-      .then((res) => res.json())
-      .then((data) => {
-        setToyCarsData(data);
-      });
+    axios.get(`http://localhost:7000/toys`).then((data) => {
+      setToyCarsData(data.data);
+    });
   }, []);
 
   return (
