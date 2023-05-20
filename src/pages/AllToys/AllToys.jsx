@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import SingleToyCard from "./SingleToyCard";
 
 const AllToys = () => {
+  const [showAll, setShowAll] = useState(false);
   const allToys = useLoaderData();
+
+  const handleShowAll = () => {
+    setShowAll(true);
+  };
+
   return (
     <div>
-      <h3 className="text-center text-4xl">
-        All Toys total: {allToys.length}{" "}
-      </h3>
-      <div className="overflow-x-auto w-full">
+      <h3 className="text-center text-4xl">All Toys total: {allToys.length}</h3>
+      <div className="overflow-x-auto m-8">
         <table className="table w-full">
           {/* head */}
           <thead>
@@ -22,7 +26,7 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody>
-            {allToys.map((singleToy) => (
+            {allToys.slice(0, showAll ? 1000 : 20).map((singleToy) => (
               <SingleToyCard
                 key={singleToy._id}
                 singleToy={singleToy}
@@ -31,6 +35,11 @@ const AllToys = () => {
           </tbody>
         </table>
       </div>
+      {!showAll && (
+        <span onClick={handleShowAll} className="text-center">
+          <button className="btn btn-outline">See All</button>
+        </span>
+      )}
     </div>
   );
 };
