@@ -35,6 +35,28 @@ const MyToys = () => {
     }
   };
 
+  const handleUpdateToys = (id) => {
+    fetch(`http://localhost:7000/my_toys/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ status: "confirm" }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          // update
+          const remaining = myToys.filter((toy) => toy._id !== id);
+          const updated = myToys.find((toy) => toy._id === id);
+          updated.status = "confirm";
+          const newToys = [updated, ...remaining];
+          setMyToys(newToys);
+        }
+      });
+  };
+
   return (
     <div>
       <h3 className="text-center text-4xl">MyToys total: {myToys.length} </h3>
@@ -57,6 +79,7 @@ const MyToys = () => {
                 key={myToy._id}
                 myToy={myToy}
                 handleDelete={handleDelete}
+                handleUpdateToys={handleUpdateToys}
               ></MyToysRow>
             ))}
           </tbody>

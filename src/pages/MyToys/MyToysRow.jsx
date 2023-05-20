@@ -1,6 +1,6 @@
 import React from "react";
 
-const MyToysRow = ({ myToy, handleDelete }) => {
+const MyToysRow = ({ myToy, handleDelete, handleUpdateToys }) => {
   const {
     _id,
     photo_url,
@@ -12,6 +12,7 @@ const MyToysRow = ({ myToy, handleDelete }) => {
     quantity,
     rating,
     details,
+    status,
   } = myToy;
 
   return (
@@ -70,7 +71,16 @@ const MyToysRow = ({ myToy, handleDelete }) => {
         <span className="font-bold">Price:</span> ${price}
       </td>
       <th>
-        <button className="btn btn-ghost border-gray-700 btn-xs">update</button>
+        {status === "confirm" ? (
+          <span className="font-bold text-purple-600"> Confirmed </span>
+        ) : (
+          <button
+            onClick={() => handleUpdateToys(_id)}
+            className="btn btn-ghost border-gray-700 btn-xs"
+          >
+            update
+          </button>
+        )}
       </th>
     </tr>
   );
