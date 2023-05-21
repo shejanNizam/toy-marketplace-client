@@ -22,9 +22,11 @@ const ReactTabs = () => {
       : toyCarsData.filter((car) => car.category === selectedCategory);
 
   useEffect(() => {
-    axios.get(`http://localhost:7000/toys`).then((data) => {
-      setToyCarsData(data.data);
-    });
+    axios
+      .get(`https://toy-marketplace-server-silk.vercel.app/toys`)
+      .then((data) => {
+        setToyCarsData(data.data);
+      });
   }, []);
 
   return (

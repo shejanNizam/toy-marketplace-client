@@ -26,7 +26,7 @@ const UpdatedToys = () => {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    fetch(`http://localhost:7000/toys/${_id}`, {
+    fetch(`https://toy-marketplace-server-silk.vercel.app/toys/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

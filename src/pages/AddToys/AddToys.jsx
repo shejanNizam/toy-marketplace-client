@@ -14,7 +14,7 @@ const AddToys = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch(`http://localhost:7000/post_toys`, {
+    fetch(`https://toy-marketplace-server-silk.vercel.app/post_toys`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

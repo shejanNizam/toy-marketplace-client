@@ -11,7 +11,9 @@ const MyToys = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:7000/my_toys?email=${user?.email}`)
+      .get(
+        `https://toy-marketplace-server-silk.vercel.app/my_toys?email=${user?.email}`
+      )
       .then((data) => {
         setMyToys(data.data);
       });
@@ -28,14 +30,14 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:7000/my_toys/${id}`, {
+        fetch(`https://toy-marketplace-server-silk.vercel.app/my_toys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire("Deleted!", "Your car has been deleted.", "success");
               const remaining = myToys.filter((toy) => toy._id !== id);
               setMyToys(remaining);
             }

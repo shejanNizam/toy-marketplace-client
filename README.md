@@ -4,7 +4,7 @@ Best toy selling for all people to get a premimu quality of all kinds of Cars.
 
 ## Live Link
 
-Hosted in Firebase -> [ToyCars](https://chef-recipe-hunter-c46b2.web.app/)
+Hosted in Firebase -> [ToyCars](https://toy-marketplace-d28dd.web.app/)
 
 ## React Router Dom v6.4
 
