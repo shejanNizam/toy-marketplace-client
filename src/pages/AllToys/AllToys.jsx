@@ -32,7 +32,7 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody>
-            {allToys.slice(0, showAll ? 1000 : 20).map((singleToy) => (
+            {allToys?.slice(0, showAll ? 1000 : 20).map((singleToy) => (
               <SingleToyCard
                 key={singleToy._id}
                 singleToy={singleToy}

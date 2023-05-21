@@ -78,6 +78,7 @@ const SignUp = () => {
                   <input
                     type="email"
                     name="email"
+                    required
                     placeholder="email"
                     className="input input-bordered"
                   />
@@ -89,6 +90,7 @@ const SignUp = () => {
                   <input
                     type="password"
                     name="password"
+                    required
                     placeholder="password"
                     className="input input-bordered"
                   />
@@ -96,7 +98,7 @@ const SignUp = () => {
                 </div>
                 <div className="form-control mt-6">
                   <input
-                    className="btn btn-primary"
+                    className="btn btn-outline"
                     type="submit"
                     value="Sign Up"
                   />

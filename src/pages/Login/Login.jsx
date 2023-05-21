@@ -54,6 +54,7 @@ const Login = () => {
                   <input
                     type="text"
                     name="email"
+                    required
                     placeholder="email"
                     className="input input-bordered"
                   />
@@ -65,6 +66,7 @@ const Login = () => {
                   <input
                     type="password"
                     name="password"
+                    required
                     placeholder="password"
                     className="input input-bordered"
                   />
@@ -72,15 +74,15 @@ const Login = () => {
                 </div>
                 <div className="form-control mt-6">
                   <input
-                    className="btn btn-primary"
+                    className="btn btn-outline"
                     type="submit"
                     value="Login"
                   />
                 </div>
               </form>
               <p className="my-4 text-center">
-                New to Car Doctors
-                <Link className="text-orange-600 font-bold" to="/signup">
+                New to Toy Cars..
+                <Link className="text-orange-600 font-bold ms-1" to="/signup">
                   Sign Up
                 </Link>
                 <SocialLogin />

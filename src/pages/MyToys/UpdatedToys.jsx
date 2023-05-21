@@ -52,12 +52,14 @@ const UpdatedToys = () => {
           <input
             className="m-2 p-2 h-10 w-60 rounded"
             placeholder="Seller Name"
+            readOnly
             defaultValue={seller_name}
             {...register("seller_name", { required: true })}
           />
           <input
             className="m-2 p-2 h-10 w-60 rounded"
             placeholder="Seller Email"
+            readOnly
             defaultValue={email}
             {...register("email", { required: true })}
           />
