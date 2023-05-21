@@ -1,11 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/login.svg";
 import { AuthContext } from "../../providers/AuthProvider";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
-import { Helmet } from "react-helmet";
 
 const Login = () => {
+  const [error, setError] = useState("");
+
   const { signIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -25,7 +27,10 @@ const Login = () => {
         form.reset();
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error.message);
+        setError(error.message);
+      });
   };
 
   return (
@@ -63,11 +68,7 @@ const Login = () => {
                     placeholder="password"
                     className="input input-bordered"
                   />
-                  <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
-                      Forgot password?
-                    </a>
-                  </label>
+                  <p className="text-red-600"> {error} </p>
                 </div>
                 <div className="form-control mt-6">
                   <input
