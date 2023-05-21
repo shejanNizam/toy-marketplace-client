@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { FaAngleLeft } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -18,7 +19,10 @@ const ToysDetails = () => {
   } = toyDetails || {};
   // console.log(toyDetails);
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>Toy Details | Toy Cars</title>
+      </Helmet>
       <h3 className="text-center text-2xl font-bold">
         Details For : <span className="text-orange-400">{toy_name}</span>
       </h3>
@@ -55,7 +59,7 @@ const ToysDetails = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
