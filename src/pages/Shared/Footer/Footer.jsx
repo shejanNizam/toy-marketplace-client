@@ -9,7 +9,7 @@ const Footer = () => {
         <p>
           Toy Cars Ltd.
           <br />
-          Nizam Uddin Shejan 2023 || <br /> Programming Hero Assignment 10
+          Nizam Uddin Shejan 2023 || <br /> Programming Hero Assignment 11
         </p>
       </div>
       <div>
