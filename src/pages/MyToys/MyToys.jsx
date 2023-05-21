@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 import MyToysRow from "./MyToysRow";
@@ -44,7 +45,10 @@ const MyToys = () => {
   };
 
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>My Toys | Toy Cars</title>
+      </Helmet>
       <h3 className="text-center text-3xl font-bold ">
         My Toys: <span className="text-orange-400">{myToys.length}</span> Pcs
       </h3>
@@ -72,7 +76,7 @@ const MyToys = () => {
           </tbody>
         </table>
       </div>
-    </div>
+    </>
   );
 };
 

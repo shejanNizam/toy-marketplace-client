@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { FaAngleRight } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import SingleToyCard from "./SingleToyCard";
@@ -13,6 +14,9 @@ const AllToys = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>All Toys | Toy Cars</title>
+      </Helmet>
       <h3 className="text-center text-3xl font-bold ">
         All Toys: <span className="text-orange-400">{allToys.length}</span> Pcs
       </h3>

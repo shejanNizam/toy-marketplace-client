@@ -1,11 +1,15 @@
 import React, { useRef } from "react";
+import { Helmet } from "react-helmet";
 // import ReactToPdf from "react-to-pdf";
 
 const Blogs = () => {
   const ref = useRef();
 
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>Blogs | Toy Cars</title>
+      </Helmet>
       <div ref={ref} style={{ backgroundColor: "#edffff" }}>
         <div className="container">
           <h1 className="text-center mb-5">
@@ -81,7 +85,7 @@ const Blogs = () => {
       {/* <ReactToPdf targetRef={ref} filename="blog_page.pdf">
         {({ toPdf }) => <button onClick={toPdf}>Download PDF</button>}
       </ReactToPdf> */}
-    </div>
+    </>
   );
 };
 
