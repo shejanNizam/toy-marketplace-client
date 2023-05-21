@@ -58,7 +58,13 @@ const GallerySection = () => {
       <h2 className="text-2xl text-center text-orange-400 font-bold my-8 mb-8">
         Some of our sample Collection
       </h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div
+        data-aos="fade-zoom-in"
+        data-aos-offset="200"
+        data-aos-easing="ease-in-sine"
+        data-aos-duration="200"
+        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+      >
         {galleryData.map((item) => (
           <div key={item.id} className="rounded overflow-hidden shadow-md">
             <img

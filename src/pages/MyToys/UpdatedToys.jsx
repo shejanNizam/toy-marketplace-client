@@ -36,7 +36,7 @@ const UpdatedToys = () => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          Swal.fire("Updated!", "Your file has been update.", "success");
+          Swal.fire("Updated!", "Your car has been updated.", "success");
         }
       });
   };
