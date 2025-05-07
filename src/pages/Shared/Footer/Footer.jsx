@@ -9,7 +9,7 @@ const Footer = () => {
         <p>
           Toy Cars Ltd.
           <br />
-          Nizam Uddin Shejan 2023 || <br /> Programming Hero Assignment 11
+          Nizam Uddin Shejan 2023 || <br /> Copyright © All rights reserved.
         </p>
       </div>
       <div>
